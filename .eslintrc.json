@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:tailwindcss/recommended",
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "plugins": ["tailwindcss"],
+  "ignorePatterns": ["components/ui/"]
+}

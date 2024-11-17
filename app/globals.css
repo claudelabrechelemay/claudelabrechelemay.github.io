@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+  font-size: 22px;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+
+p {
+  font-size: 14px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Benton Sans Condensed";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Condensed";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Condensed";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Condensed";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Condensed Bold";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Condensed Bold";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Thin";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Thin";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Thin";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Thin";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Book";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Book";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Book";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Book";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Regular";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Regular";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Regular";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Regular";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: bold
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Bold";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal
+  }
+  
+  @font-face {
+    font-family: "Benton Sans Bold";
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
+    src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
+    font-style: italic;
+    font-weight: normal
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-display: swap;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "label": {
+    "en": "Collection of images",
+    "fr": "Collection d'Images"
+  },
+  "items": [{
+    "title": {
+      "en": "Abititi",
+      "fr": "Abititi"
+    },
+    "slug": "abititi"
+  }, {
+    "title": {
+      "en": "Current images",
+      "fr": "Current images"
+    },
+    "slug": "current-images"
+  }]
+}
