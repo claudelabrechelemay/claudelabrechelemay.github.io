@@ -6,9 +6,13 @@ const withConfiguredMDX = configMDX()
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
-}
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  // Move to Next.js 15, then:
+  // experimental: {
+  //   reactCompiler: true,
+  // },
+};
 
 export default withConfiguredMDX(nextConfig)

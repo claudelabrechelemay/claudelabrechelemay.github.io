@@ -2,10 +2,10 @@
 
 import type {PropsWithChildren} from 'react'
 
-import {SidebarInset, SidebarProvider, SidebarTrigger} from '@/components/ui/sidebar'
-import {useIsMobile} from '@/hooks/use-mobile'
+import {SidebarInset, SidebarProvider} from '@/components/ui/sidebar'
 
-import {AppSidebar} from '@/components/app-sidebar'
+import {Menu, Toggle} from '@/components/Menu'
+import {useIsMobile} from '@/hooks/use-mobile'
 
 export type LayoutProps = PropsWithChildren<{
   children: React.ReactNode
@@ -15,9 +15,9 @@ export default function Layout ({children}: LayoutProps) {
   const isMobile = useIsMobile()
   return (
     <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset className="justify-center px-20">
-        {isMobile ? <SidebarTrigger className='-translate-x-11' /> : null}
+      <Menu />
+      <SidebarInset className={`justify-center md:max-w-[calc(100vw-var(--sidebar-width))] ${isMobile ? 'px-0' : 'px-20'}`}>
+        <Toggle />
         {children}
       </SidebarInset>
     </SidebarProvider>

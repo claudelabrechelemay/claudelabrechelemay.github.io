@@ -1,6 +1,5 @@
-import {remark} from 'remark'
-import remarkHTML from 'remark-html'
-import type {MDXProps} from 'mdx/types'
+'use client'
+
 import Image, {type StaticImageData} from 'next/image'
 
 import {
@@ -11,6 +10,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import {Fragment} from 'react'
+import {useIsMobile} from '@/hooks/use-mobile'
 
 export type Image = {
   itemType: 'image'
@@ -31,7 +31,7 @@ export type Image = {
 export type Markdown = {
   itemType: 'markdown'
   key: string
-  md: (props: MDXProps) => JSX.Element
+  md: JSX.Element
 }
 
 export type Slide = Image | Markdown
@@ -55,47 +55,43 @@ export type ImageSlideProps = {
   }
 }
 
-export async function ImageSlide ({data}: ImageSlideProps) {
-  const parsed = await remark().use(remarkHTML).process(data.caption?.en)
-  const html = parsed.toString()
-  return (
-    <figure className='relative h-[50vh]'>
-      <Image
-        className='size-full object-contain'
-        src={data.image.src}
-        alt={data.image.alt['en']}
-        placeholder='blur'
-        width={100}
-        height={0}
-        sizes='(max-width: 768px) 512px, 768px'
-      />
-      <figcaption dangerouslySetInnerHTML={{__html: html || ''}} />
-    </figure>
-  )
-}
-
 export default function SlideDeck ({slides}: SlideDeckProps) {
+  const isMobile = useIsMobile()
   return (
-    <Carousel>
+    <Carousel orientation={isMobile ? 'vertical' : 'horizontal'}>
       <CarouselContent>
         {slides.map((item: Slide) => {
+          const itemClass = '[--carousel-height:70svh] max-w-full basis-auto md:h-[calc(100svh-1.75rem)] short:h-[--carousel-height]'
           return (
             <Fragment key={item.key}>
-              {item.itemType === 'image' ? (
-                <CarouselItem className='basis-auto'>
-                  <ImageSlide data={item} />
-                </CarouselItem>
-              ) : (
-                <CarouselItem className='max-w-[75ch]'>
-                  <item.md />
-                </CarouselItem>
-              )}
+              {item.itemType === 'image'
+                ? (
+                  <CarouselItem className={`${itemClass}`}>
+                    <figure className={`relative flex w-full flex-col`}>
+                      <Image
+                        className='max-h-[900px] w-full object-contain md:h-[calc(100svh-5.75rem)] short:h-[calc(var(--carousel-height)-4rem)]'
+                        src={item.image.src}
+                        alt={item.image.alt['en']}
+                        placeholder='blur'
+                        width={100}
+                        height={0}
+                        sizes='(max-width: 768px) 512px, 768px'
+                      />
+                      <figcaption className='h-16 px-4 [&>p]:mt-0' dangerouslySetInnerHTML={{__html: item.caption?.en || ''}} />
+                    </figure>
+                  </CarouselItem>
+                ) : (
+                  <CarouselItem className={`${itemClass} overflow-y-scroll p-4 lg:max-w-[75ch]`}>
+                    {item.md}
+                  </CarouselItem>
+                )
+              }
             </Fragment>
           )
         })}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      {!isMobile ? <CarouselPrevious /> : null}
+      {!isMobile ? <CarouselNext /> : null}
     </Carousel>
   )
 }

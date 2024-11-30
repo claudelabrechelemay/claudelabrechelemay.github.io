@@ -1,6 +1,6 @@
-import SlideDeck, {type Slide} from '@/components/SlideDeck'
+import SlideDeck, {type Markdown, type Image, type Slide} from '@/components/SlideDeck'
 
-import deepTime from './deep-time.mdx'
+import DeepTime from './deep-time.mdx'
 
 import deepTimeCover from './images/deep-time-cover.jpg'
 import wallOfClay from './images/wall-of-clay.jpg'
@@ -11,11 +11,20 @@ import vertebrae from './images/vertebrae.jpg'
 import spineCeiling from './images/spine-ceiling.jpg'
 import deepTimeBookend from './images/deep-time-bookend.jpg'
 
-export const slides: Slide[] = [{
+import {remark} from 'remark'
+import remarkHTML from 'remark-html'
+
+const parseMarkdown = remark().use(remarkHTML)
+
+type Locale = 'en' | 'fr'
+
+const locales: Locale[] = ['en', 'fr']
+
+export const slides: Slide[] = [({
   itemType: 'markdown',
   key: 'deep-time-into',
-  md: deepTime
-}, {
+  md: <DeepTime />
+}) as Markdown, ({
   itemType: 'image',
   key: 'deepTimeCover',
   image: {
@@ -25,7 +34,7 @@ export const slides: Slide[] = [{
       fr: ''
     }
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'wallOfClay',
   image: {
@@ -41,7 +50,7 @@ impression jet d'encre, ~8'x10'`,
     fr: `_a wall of clay_ – 2023  
 impression jet d'encre, ~8'x10'`
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: '~65kg',
   image: {
@@ -57,7 +66,7 @@ impression jet d'encre, ~8'x10'`
     fr: `_~65kg_ – 2024  
 19 impressions jet d'encre, 4"x5" chaque`
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'spine',
   image: {
@@ -73,7 +82,7 @@ céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`,
     fr: `_Spine_ – 2024  
 céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'spineTail',
   image: {
@@ -87,7 +96,7 @@ céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
     en: '',
     fr: ''
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'vertebrae',
   image: {
@@ -101,7 +110,7 @@ céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
     en: '',
     fr: ''
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'spineCeiling',
   image: {
@@ -115,7 +124,7 @@ céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
     en: '',
     fr: ''
   }
-}, {
+  }) as Image, ({
   itemType: 'image',
   key: 'deepTimeBookend',
   image: {
@@ -129,7 +138,23 @@ céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
     en: '',
     fr: ''
   }
-}]
+  }) as Image].map((slide) => {
+    if (slide.itemType === 'image') {
+      const newSlide = {
+        ...slide
+      }
+      Promise.all(locales.map(async (locale) => {
+        if (newSlide.caption) {
+          const parsed = await parseMarkdown.process(slide.caption?.[locale])
+          const html = parsed.toString()
+          newSlide.caption[locale] = html
+        }
+        return locale
+      }))
+      return newSlide
+    }
+    return slide
+  })
 
 export default function Page () {
   return (
