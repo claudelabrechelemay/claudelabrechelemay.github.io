@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel'
 import {Fragment} from 'react'
 import {useIsMobile} from '@/hooks/use-mobile'
+import {useSidebar} from './ui/sidebar'
 
 export type Image = {
   itemType: 'image'
@@ -57,11 +58,12 @@ export type ImageSlideProps = {
 
 export default function SlideDeck ({slides}: SlideDeckProps) {
   const isMobile = useIsMobile()
+  const {state} = useSidebar()
   return (
     <Carousel orientation={isMobile ? 'vertical' : 'horizontal'}>
       <CarouselContent>
         {slides.map((item: Slide) => {
-          const itemClass = '[--carousel-height:70svh] max-w-full basis-auto md:h-[calc(100svh-1.75rem)] short:h-[--carousel-height]'
+          const itemClass = '[--carousel-height:70svh] basis-auto md:h-[calc(100svh-1.75rem)] short:h-[--carousel-height]'
           return (
             <Fragment key={item.key}>
               {item.itemType === 'image'
@@ -69,19 +71,17 @@ export default function SlideDeck ({slides}: SlideDeckProps) {
                   <CarouselItem className={`${itemClass}`}>
                     <figure className={`relative flex w-full flex-col`}>
                       <Image
-                        className='max-h-[900px] w-full object-contain md:h-[calc(100svh-5.75rem)] short:h-[calc(var(--carousel-height)-4rem)]'
+                        className='w-full object-contain sm:h-full sm:w-auto md:h-[calc(100svh-5.75rem)] short:h-[calc(var(--carousel-height)-4rem)]'
                         src={item.image.src}
                         alt={item.image.alt['en']}
                         placeholder='blur'
-                        width={100}
-                        height={0}
                         sizes='(max-width: 768px) 512px, 768px'
                       />
                       <figcaption className='h-16 px-4 [&>p]:mt-0' dangerouslySetInnerHTML={{__html: item.caption?.en || ''}} />
                     </figure>
                   </CarouselItem>
                 ) : (
-                  <CarouselItem className={`${itemClass} overflow-y-scroll p-4 lg:max-w-[75ch]`}>
+                  <CarouselItem className={`${itemClass} max-w-full overflow-y-scroll p-4 lg:max-w-[75ch]`}>
                     {item.md}
                   </CarouselItem>
                 )
@@ -90,8 +90,15 @@ export default function SlideDeck ({slides}: SlideDeckProps) {
           )
         })}
       </CarouselContent>
-      {!isMobile ? <CarouselPrevious /> : null}
-      {!isMobile ? <CarouselNext /> : null}
+      {!isMobile
+        ? (
+          <>
+            <CarouselPrevious />
+            <CarouselNext className={`transition-transform duration-200 ease-linear ${state === 'collapsed' ? 'translate-x-[--sidebar-width]' : ''}`} />
+          </>
+        )
+        : null
+      }
     </Carousel>
   )
 }
