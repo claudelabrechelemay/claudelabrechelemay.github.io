@@ -53,7 +53,7 @@ export function Menu () {
         {groups.map(({label, items}) => (
           <SidebarGroup key={items[0].slug}>
             {label ? (
-              <SidebarGroupLabel>
+              <SidebarGroupLabel className='text-foreground'>
                 <SidebarMenuButton asChild>
                   <a href={label.en}>
                     <span>{label.en}</span>
@@ -111,7 +111,7 @@ export function Menu () {
             </Popover>
           </SidebarMenuItem>
         </SidebarMenu>
-        <SidebarGroupLabel asChild className='text-sidebar-foreground/50'>
+        <SidebarGroupLabel asChild className='text-sidebar-foreground'>
           <p>
             Copyright © Claude Labrèche-Lemay<br />
             2019; All rights reserved.

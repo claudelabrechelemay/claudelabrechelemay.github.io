@@ -62,7 +62,7 @@ export default function SlideDeck ({slides}: SlideDeckProps) {
   return (
     <Carousel orientation={isMobile ? 'vertical' : 'horizontal'}>
       <CarouselContent>
-        {slides.map((item: Slide) => {
+        {slides.map((item: Slide, idx) => {
           const itemClass = '[--carousel-height:70svh] basis-auto md:h-[calc(100svh-1.75rem)] short:h-[--carousel-height]'
           return (
             <Fragment key={item.key}>
@@ -76,6 +76,7 @@ export default function SlideDeck ({slides}: SlideDeckProps) {
                         alt={item.image.alt['en']}
                         placeholder='blur'
                         sizes='(max-width: 768px) 512px, 768px'
+                        loading={idx < 3 ? 'eager' : 'lazy'}
                       />
                       <figcaption className='h-16 px-4 [&>p]:mt-0' dangerouslySetInnerHTML={{__html: item.caption?.en || ''}} />
                     </figure>

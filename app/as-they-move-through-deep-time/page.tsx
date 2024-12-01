@@ -20,7 +20,7 @@ type Locale = 'en' | 'fr'
 
 const locales: Locale[] = ['en', 'fr']
 
-export const slides: Slide[] = [({
+const slides: Slide[] = [({
   itemType: 'markdown',
   key: 'deep-time-into',
   md: <DeepTime />
