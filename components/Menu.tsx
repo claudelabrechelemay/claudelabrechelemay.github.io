@@ -50,14 +50,18 @@ export function Menu () {
         </SidebarMenuButton>
       </SidebarHeader>
       <SidebarContent className='h-full font-sidebar text-sm'>
-        {groups.map(({label, items}) => (
+        {groups.map(({label, slug, items}) => (
           <SidebarGroup key={items[0].slug}>
             {label ? (
               <SidebarGroupLabel className='text-foreground'>
                 <SidebarMenuButton asChild>
-                  <a href={label.en}>
+                  {slug ? (
+                    <a href={slug}>
+                      <span>{label.en}</span>
+                    </a>
+                  ) : (
                     <span>{label.en}</span>
-                  </a>
+                  )}
                 </SidebarMenuButton>
               </SidebarGroupLabel>
             ) : null}

@@ -11,6 +11,7 @@ export type Group = {
     en: string
     fr: string
   }
+  slug?: string
   items: {
     title: {
       en: string

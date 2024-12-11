@@ -1,13 +1,11 @@
 import configMDX from '@next/mdx'
+import withExportImages from 'next-export-optimize-images';
 
-const withConfiguredMDX = configMDX()
+const withConfiguredMDX = configMDX();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // Move to Next.js 15, then:
   // experimental: {
@@ -15,4 +13,4 @@ const nextConfig = {
   // },
 };
 
-export default withConfiguredMDX(nextConfig)
+export default withExportImages(withConfiguredMDX(nextConfig));

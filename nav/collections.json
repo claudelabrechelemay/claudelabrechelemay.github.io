@@ -3,17 +3,21 @@
     "en": "Collection of images",
     "fr": "Collection d'Images"
   },
-  "items": [{
-    "title": {
-      "en": "Abititi",
-      "fr": "Abititi"
+  "slug": "collection-d-images",
+  "items": [
+    {
+      "title": {
+        "en": "Abitibi",
+        "fr": "Abitibi"
+      },
+      "slug": "abitibi"
     },
-    "slug": "abititi"
-  }, {
-    "title": {
-      "en": "Current images",
-      "fr": "Current images"
-    },
-    "slug": "current-images"
-  }]
+    {
+      "title": {
+        "en": "Current images",
+        "fr": "Current images"
+      },
+      "slug": "flow"
+    }
+  ]
 }

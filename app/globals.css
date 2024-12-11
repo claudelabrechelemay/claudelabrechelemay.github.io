@@ -7,6 +7,11 @@ h2 {
   margin-block-end: 0.83em;
 }
 
+h4 {
+  font-weight: bold;
+  margin-block-start: 3rem;
+}
+
 p {
   font-size: 14px;
   margin-block-start: 1em;

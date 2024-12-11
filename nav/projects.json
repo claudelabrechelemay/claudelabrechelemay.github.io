@@ -3,47 +3,56 @@
     "en": "Projects",
     "fr": "Projets"
   },
-  "items": [{
-    "title": {
-      "en": "as they move through deep time",
-      "fr": "as they move through deep time"
+  "slug": "6366038-projets",
+  "items": [
+    {
+      "title": {
+        "en": "as they move through deep time",
+        "fr": "as they move through deep time"
+      },
+      "slug": "as-they-move-through-deep-time"
     },
-    "slug": "as-they-move-through-deep-time"
-  }, {
-    "title": {
-      "en": "On Movement",
-      "fr": "On Movement"
+    {
+      "title": {
+        "en": "On Movement",
+        "fr": "On Movement"
+      },
+      "slug": "on-movement"
     },
-    "slug": "on-movement"
-  }, {
-    "title": {
-      "en": "Translation of Movement",
-      "fr": "Translation of Movement"
+    {
+      "title": {
+        "en": "Translation of Movement",
+        "fr": "Translation of Movement"
+      },
+      "slug": "translation-of-movement"
     },
-    "slug": "translation-of-movement"
-  }, {
-    "title": {
-      "en": "On Language",
-      "fr": "On Language"
+    {
+      "title": {
+        "en": "On Language",
+        "fr": "On Language"
+      },
+      "slug": "on-language"
     },
-    "slug": "on-language"
-  }, {
-    "title": {
-      "en": "Sous une Géologie des Corps",
-      "fr": "Sous une Géologie des Corps"
+    {
+      "title": {
+        "en": "Sous une Géologie des Corps",
+        "fr": "Sous une Géologie des Corps"
+      },
+      "slug": "sous-une-geologie-des-corps"
     },
-    "slug": "sous-une-geologie-des-corps"
-  }, {
-    "title": {
-      "en": "Anchored in the Process",
-      "fr": "Anchored in the Process"
+    {
+      "title": {
+        "en": "Anchored in the Process",
+        "fr": "Anchored in the Process"
+      },
+      "slug": "anchored-in-process"
     },
-    "slug": "anchored-in-the-process"
-  }, {
-    "title": {
-      "en": "Stay Still",
-      "fr": "Stay Still"
-    },
-    "slug": "stay-still"
-  }]
+    {
+      "title": {
+        "en": "Stay Still",
+        "fr": "Stay Still"
+      },
+      "slug": "staystill"
+    }
+  ]
 }
