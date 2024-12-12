@@ -10,6 +10,9 @@ import {type PropsWithChildren} from 'react'
 import {useIsMobile} from '@/hooks/use-mobile'
 import {useSidebar} from './ui/sidebar'
 
+import {carouselHeight} from '@/config'
+import {cn} from '@/lib/utils'
+
 export type SlideDeckProps = {
   loop?: boolean
 }
@@ -21,8 +24,8 @@ export default function SlideDeck ({children, loop = false}: PropsWithChildren<S
     <Carousel orientation={isMobile ? 'vertical' : 'horizontal'} opts={{
       skipSnaps: true,
       loop
-    }} className='max-h-[448px]'>
-      <CarouselContent>
+    }} className={cn(carouselHeight, 'max-h-full [&>div]:h-full')}>
+      <CarouselContent className='h-full'>
         {children}
       </CarouselContent>
       {!isMobile

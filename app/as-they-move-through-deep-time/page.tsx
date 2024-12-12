@@ -31,8 +31,8 @@ export default function Page () {
           fr: ''
         }}
         caption={{
-          en: "_a wall of clay_ – 2023<br />impression jet d'encre, ~8'x10'",
-          fr: "_a wall of clay_ – 2023<br />impression jet d'encre, ~8'x10'"
+          en: "_a wall of clay_ – 2023\nimpression jet d'encre, ~8'x10'",
+          fr: "_a wall of clay_ – 2023\nimpression jet d'encre, ~8'x10'"
         }}
       />
       <Image
@@ -42,10 +42,8 @@ export default function Page () {
           fr: ''
         }}
         caption={{
-          en: `_~65kg_ – 2024  
-19 impressions jet d'encre, 4"x5" chaque`,
-          fr: `_~65kg_ – 2024  
-      19 impressions jet d'encre, 4"x5" chaque`
+          en: `_~65kg_ – 2024\n19 impressions jet d'encre, 4"x5" chaque`,
+          fr: `_~65kg_ – 2024\n19 impressions jet d'encre, 4"x5" chaque`
         }}
       />
       <Image
@@ -55,8 +53,8 @@ export default function Page () {
           fr: ''
         }}
         caption={{
-          en: `_Spine_ – 2024<br />céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`,
-          fr: `_Spine_ – 2024<br />céramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
+          en: `_Spine_ – 2024\ncéramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`,
+          fr: `_Spine_ – 2024\ncéramique enfumée, cire d'abeille, cire, argile naturelle, 10'x5"`
         }}
       />
       <Image

@@ -1,4 +1,4 @@
-import type {StaticImageData} from 'next/image'
+import type {StaticImageData, ImageProps as NextImageProps} from 'next/image'
 import Picture from 'next-export-optimize-images/picture'
 import {
   CarouselItem,
@@ -22,7 +22,7 @@ export type ImageProps = {
     en: string
     fr: string
   }
-  loading?: typeof Picture['loading']
+  loading?: NextImageProps['loading']
 }
 
 export default async function Image ({src, alt, caption, loading}: ImageProps) {
@@ -31,18 +31,19 @@ export default async function Image ({src, alt, caption, loading}: ImageProps) {
     const html = parsed.toString()
     caption[locale] = html
   }
+
   return (
     <CarouselItem className={carouselItemClass}>
-      <figure className={`relative flex w-full flex-col`}>
+      <figure className={`relative table`}>
         <Picture
           src={src}
           alt={alt[locale]}
           placeholder='blur'
           loading={loading}
-          className='w-full max-h-96 object-contain sm:h-full sm:w-auto md:h-[calc(100svh-5.75rem)] short:h-[calc(var(--carousel-height)-4rem)]'
+          className='object-contain w-full md:w-auto md:h-[calc(100svh-4rem-5rem)] short:h-[calc(var(--carousel-height)-4rem)]'
           sizes='(max-width: 768px) 512px, 768px'
         />
-        <figcaption className='h-16 px-4 [&>p]:mt-0' dangerouslySetInnerHTML={{__html: caption?.en || ''}} />
+        <figcaption className='h-16 px-4 [&>p]:mt-0 whitespace-pre-wrap table-caption caption-bottom' dangerouslySetInnerHTML={{__html: caption?.en || ''}} />
       </figure>
     </CarouselItem>
   )

@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .next out",
     "dev": "next dev",
     "build": "next build && next-export-optimize-images",
     "start": "npx serve@latest out",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "count-images": "node bin/count-images.mjs app",
+    "count-optimized-images": "node bin/count-images.mjs out/_next/static/chunks/images/_next/static/media"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "10.2.0",
@@ -34,7 +37,7 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.2",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
     "eslint": "9.16.0",
@@ -42,7 +45,8 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-tailwindcss": "3.17.5",
-    "next-export-optimize-images": "4.6.0",
+    "filesize": "10.1.6",
+    "next-export-optimize-images": "4.6.1",
     "postcss": "8.4.49",
     "prettier": "3.4.2",
     "prettier-plugin-tailwindcss": "0.6.9",

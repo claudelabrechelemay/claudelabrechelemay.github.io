@@ -25,18 +25,10 @@ export default function Page () {
           en: '',
           fr: ''
         }}
-        caption={{
-          en: '',
-          fr: ''
-        }}
       />
       <Image
         src={img1}
         alt={{
-          en: '',
-          fr: ''
-        }}
-        caption={{
           en: '',
           fr: ''
         }}
@@ -47,18 +39,10 @@ export default function Page () {
           en: '',
           fr: ''
         }}
-        caption={{
-          en: '',
-          fr: ''
-        }}
       />
       <Image
         src={img3}
         alt={{
-          en: '',
-          fr: ''
-        }}
-        caption={{
           en: '',
           fr: ''
         }}
@@ -69,18 +53,10 @@ export default function Page () {
           en: '',
           fr: ''
         }}
-        caption={{
-          en: '',
-          fr: ''
-        }}
       />
       <Image
         src={img5}
         alt={{
-          en: '',
-          fr: ''
-        }}
-        caption={{
           en: '',
           fr: ''
         }}
@@ -91,18 +67,10 @@ export default function Page () {
           en: '',
           fr: ''
         }}
-        caption={{
-          en: '',
-          fr: ''
-        }}
       />
       <Image
         src={img7}
         alt={{
-          en: '',
-          fr: ''
-        }}
-        caption={{
           en: '',
           fr: ''
         }}
@@ -113,18 +81,10 @@ export default function Page () {
           en: '',
           fr: ''
         }}
-        caption={{
-          en: '',
-          fr: ''
-        }}
       />
       <Image
         src={img9}
         alt={{
-          en: '',
-          fr: ''
-        }}
-        caption={{
           en: '',
           fr: ''
         }}
