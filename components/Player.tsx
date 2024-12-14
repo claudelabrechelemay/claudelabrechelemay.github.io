@@ -12,3 +12,5 @@ export default function Player ({id}: PlayerProps) {
     ></iframe>
   )
 }
+
+Player.displayName = 'Player'

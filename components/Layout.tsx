@@ -22,3 +22,5 @@ export default function Layout ({children}: LayoutProps) {
     </SidebarProvider>
   )
 }
+
+Layout.displayName = 'Layout'

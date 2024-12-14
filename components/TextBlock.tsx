@@ -7,3 +7,5 @@ export default function TextBlock ({children}: PropsWithChildren) {
     </div>
   )
 }
+
+TextBlock.displayName = 'TextBlock'

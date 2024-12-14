@@ -5,3 +5,5 @@ export default function Subtitle ({children}: PropsWithChildren) {
     <p className='mt-0'>{children}</p>
   )
 }
+
+Subtitle.displayName = 'Subtitle'

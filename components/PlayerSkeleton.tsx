@@ -20,3 +20,5 @@ export default function PlayerSkeleton ({src, alt}: PlayerSkeletonProps) {
     </div>
   )
 }
+
+PlayerSkeleton.displayName = 'PlayerSkeleton'

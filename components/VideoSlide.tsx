@@ -37,3 +37,5 @@ export default function Video ({provider = 'vimeo', id, src, alt}: VideoProps) {
     </CarouselItem>
   )
 }
+
+Video.displayName = 'Video'

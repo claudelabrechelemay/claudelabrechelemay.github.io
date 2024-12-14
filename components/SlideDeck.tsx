@@ -6,7 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {type PropsWithChildren} from 'react'
+import {Children, cloneElement, isValidElement, type PropsWithChildren} from 'react'
+import Image, {type ImageProps} from '@/components/ImageSlide'
 import {useIsMobile} from '@/hooks/use-mobile'
 import {useSidebar} from './ui/sidebar'
 
@@ -26,7 +27,12 @@ export default function SlideDeck ({children, loop = false}: PropsWithChildren<S
       loop
     }} className={cn(carouselHeight, 'max-h-full [&>div]:h-full')}>
       <CarouselContent className='h-full'>
-        {children}
+        {Children.map(children, (child, idx) => {
+          if (isValidElement<ImageProps>(child) && child.type === Image) {
+            return cloneElement(child, {loading: idx < 3 ? 'eager' : 'lazy'})
+          }
+          return child
+        })}
       </CarouselContent>
       {!isMobile
         ? (
@@ -40,3 +46,5 @@ export default function SlideDeck ({children, loop = false}: PropsWithChildren<S
     </Carousel>
   )
 }
+
+SlideDeck.displayName = 'SlideDeck'

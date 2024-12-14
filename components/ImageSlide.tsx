@@ -34,7 +34,7 @@ export default async function Image ({src, alt, caption, loading}: ImageProps) {
 
   return (
     <CarouselItem className={carouselItemClass}>
-      <figure className={`relative table`}>
+      <figure className={`relative table w-full`}>
         <Picture
           src={src}
           alt={alt[locale]}
@@ -48,3 +48,5 @@ export default async function Image ({src, alt, caption, loading}: ImageProps) {
     </CarouselItem>
   )
 }
+
+Image.displayName = 'ImageSlide'

@@ -28,26 +28,14 @@ import {Menu as ToggleIcon, X as CloseIcon} from "lucide-react"
 import groups from '@/nav/groups'
 import {Button} from './ui/button'
 import {useIsMobile} from '@/hooks/use-mobile'
+import {usePathname} from 'next/navigation'
 
-export function Toggle () {
-  const isMobile = useIsMobile()
-  const {openMobile, open} = useSidebar()
-  const isOpen = (isMobile && openMobile) || (!isMobile && open)
-  const translateTrigger = isOpen
-    ? 'translate-x-[--sidebar-width-mobile]'
-    : 'translate-x-0'
-  const hideTrigger = isOpen
-    ? 'opacity-0 pointer-events-none'
-    : 'opacity-1'
-  return <>
-    <SidebarTrigger className={`text-gray-500 ${translateTrigger} ${hideTrigger} z-10 scale-150 p-5 absolute top-0 left-0 mt-8 ml-2 transition-[transform,opacity] duration-200 ease-linear`}>
-      <ToggleIcon />
-    </SidebarTrigger>
-  </>
-}
+const basePath = 'https://www.claudelabrechelemay.com'
 
 export function Menu () {
+  const encodedUrl = encodeURI(`${basePath}${usePathname()}`)
   const isMobile = useIsMobile()
+
   return (
     <>
       <Sidebar variant='floating'>
@@ -103,29 +91,29 @@ export function Menu () {
           <SidebarMenu className='font-sidebarSocials'>
             <SidebarMenuItem>
               <Popover>
-                <PopoverTrigger>
-                  <b>Share</b>
+                <PopoverTrigger className='font-bold'>
+                  Share
                 </PopoverTrigger>
                 <PopoverContent>
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href=''><SiFacebook /> Share to Facebook</a>
+                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}><SiFacebook /> Share to Facebook</a>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href=''><SiX /> Share to X</a>
+                        <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}><SiX /> Share to X</a>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href=''><SiTumblr /> Share to Tumblr</a>
+                        <a href={`https://www.tumblr.com/widgets/share/tool?posttype=link&amp;canonicalUrl=${encodedUrl}`}><SiTumblr /> Share to Tumblr</a>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href=''><SiPinterest /> Share to Pinterest</a>
+                        <a href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}`}><SiPinterest /> Share to Pinterest</a>
                       </Button>
                     </SidebarMenuItem>
                   </SidebarMenu>
@@ -146,3 +134,24 @@ export function Menu () {
     </>
   )
 }
+
+Menu.displayName = 'Menu'
+
+export function Toggle () {
+  const isMobile = useIsMobile()
+  const {openMobile, open} = useSidebar()
+  const isOpen = (isMobile && openMobile) || (!isMobile && open)
+  const translateTrigger = isOpen
+    ? 'translate-x-[--sidebar-width-mobile]'
+    : 'translate-x-0'
+  const hideTrigger = isOpen
+    ? 'opacity-0 pointer-events-none'
+    : 'opacity-1'
+  return <>
+    <SidebarTrigger className={`text-gray-500 ${translateTrigger} ${hideTrigger} z-10 scale-150 p-5 absolute top-0 left-0 mt-8 ml-2 transition-[transform,opacity] duration-200 ease-linear`}>
+      <ToggleIcon />
+    </SidebarTrigger>
+  </>
+}
+
+Toggle.displayName = 'Toggle'

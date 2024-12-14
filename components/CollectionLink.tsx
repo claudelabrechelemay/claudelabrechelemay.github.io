@@ -30,3 +30,5 @@ export default function CollectionLink ({url, src, alt, caption}: CollectionLink
     </a>
   )
 }
+
+CollectionLink.displayName = 'CollectionLink'

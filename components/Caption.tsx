@@ -5,3 +5,5 @@ export default function Caption ({children}: PropsWithChildren) {
     <div className='table-caption caption-bottom'>{children}</div>
   )
 }
+
+Caption.displayName = 'Caption'

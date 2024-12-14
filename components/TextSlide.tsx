@@ -11,3 +11,5 @@ export default function Text ({children}: PropsWithChildren) {
     </CarouselItem>
   )
 }
+
+Text.displayName = 'Text'

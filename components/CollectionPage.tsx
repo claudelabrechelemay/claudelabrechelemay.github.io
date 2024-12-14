@@ -15,3 +15,5 @@ export default function CollectionPage ({cover, children}: PropsWithChildren<Col
     </>
   )
 }
+
+CollectionPage.displayName = 'CollectionPage'
