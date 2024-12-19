@@ -2,6 +2,7 @@
   "name": "claudelabrechelemay",
   "version": "0.1.0",
   "private": true,
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "clean": "rm -rf .next out",
     "dev": "next dev",
