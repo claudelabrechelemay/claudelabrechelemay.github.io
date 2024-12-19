@@ -33,8 +33,13 @@ import {usePathname} from 'next/navigation'
 const basePath = 'https://www.claudelabrechelemay.com'
 
 export function Menu () {
-  const encodedUrl = encodeURI(`${basePath}${usePathname()}`)
+  const pathname = usePathname()
+  const encodedUrl = encodeURI(`${basePath}${pathname}`)
   const isMobile = useIsMobile()
+
+  function isActivePage (slug: string) {
+    return pathname.endsWith(slug)
+  }
 
   return (
     <>
@@ -56,36 +61,38 @@ export function Menu () {
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent className='h-full font-sidebar text-sm'>
-          {groups.map(({label, slug, items}) => (
-            <SidebarGroup key={items[0].slug}>
-              {label ? (
-                <SidebarGroupLabel className='text-foreground'>
-                  <SidebarMenuButton asChild>
-                    {slug ? (
-                      <a href={slug}>
-                        <span>{label.en}</span>
-                      </a>
-                    ) : (
-                      <span>{label.en}</span>
-                    )}
-                  </SidebarMenuButton>
-                </SidebarGroupLabel>
-              ) : null}
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {items.map(({title, slug}) => (
-                    <SidebarMenuItem key={title.en}>
-                      <SidebarMenuButton asChild>
-                        <a href={slug}>
-                          <span>{title.en}</span>
+          {groups.map(({label, slug, items}) => {
+            return (
+              <SidebarGroup key={items[0].slug}>
+                {label ? (
+                  <SidebarGroupLabel className='text-foreground'>
+                    <SidebarMenuButton asChild>
+                      {slug ? (
+                        <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                          <span>{label.en}</span>
                         </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          ))}
+                      ) : (
+                        <span>{label.en}</span>
+                      )}
+                    </SidebarMenuButton>
+                  </SidebarGroupLabel>
+                ) : null}
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    {items.map(({title, slug}) => (
+                      <SidebarMenuItem key={title.en}>
+                        <SidebarMenuButton asChild>
+                          <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                            <span>{title.en}</span>
+                          </a>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            )
+          })}
         </SidebarContent>
         <SidebarFooter className='text-xs'>
           <SidebarMenu className='font-sidebarSocials'>
