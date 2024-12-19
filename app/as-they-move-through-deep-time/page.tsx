@@ -4,28 +4,28 @@ import Image from '@/components/ImageSlide'
 
 import DeepTime from './deep-time.mdx'
 
-import deepTimeCover from './images/deep-time-cover.jpg'
-import wallOfClay from './images/wall-of-clay.jpg'
-import sixtyFiveKg from './images/65-kg.jpg'
-import spine from './images/spine.jpg'
-import spineTail from './images/spine-tail.jpg'
-import vertebrae from './images/vertebrae.jpg'
-import spineCeiling from './images/spine-ceiling.jpg'
-import deepTimeBookend from './images/deep-time-bookend.jpg'
+import img0 from './images/deep-time-cover.jpg'
+import img1 from './images/wall-of-clay.jpg'
+import img2 from './images/65-kg.jpg'
+import img3 from './images/spine.jpg'
+import img4 from './images/spine-tail.jpg'
+import img5 from './images/vertebrae.jpg'
+import img6 from './images/spine-ceiling.jpg'
+import img7 from './images/deep-time-bookend.jpg'
 
 export default function Page () {
   return (
     <SlideDeck>
       <Text><DeepTime /></Text>
       <Image
-        src={deepTimeCover}
+        src={img0}
         alt={{
           en: 'cover for as they move through deep time',
           fr: ''
         }}
       />
       <Image
-        src={wallOfClay}
+        src={img1}
         alt={{
           en: 'wall of clay',
           fr: ''
@@ -36,7 +36,7 @@ export default function Page () {
         }}
       />
       <Image
-        src={sixtyFiveKg}
+        src={img2}
         alt={{
           en: '~65kg',
           fr: ''
@@ -47,7 +47,7 @@ export default function Page () {
         }}
       />
       <Image
-        src={spine}
+        src={img3}
         alt={{
           en: 'spine',
           fr: ''
@@ -58,28 +58,28 @@ export default function Page () {
         }}
       />
       <Image
-        src={spineTail}
+        src={img4}
         alt={{
           en: 'spine base against the wooden floor',
           fr: ''
         }}
       />
       <Image
-        src={vertebrae}
+        src={img5}
         alt={{
           en: 'close up of vertebrae',
           fr: ''
         }}
       />
       <Image
-        src={spineCeiling}
+        src={img6}
         alt={{
           en: 'spine going through the ceiling',
           fr: ''
         }}
       />
       <Image
-        src={deepTimeBookend}
+        src={img7}
         alt={{
           en: 'as they move through deep time by Claude Labrèche-Lemay',
           fr: ''
