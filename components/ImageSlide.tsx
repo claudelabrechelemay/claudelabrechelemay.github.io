@@ -3,12 +3,12 @@ import Picture from 'next-export-optimize-images/picture'
 import {
   CarouselItem,
 } from '@/components/ui/carousel'
-import type {Locale} from '@/config'
 import {remark} from 'remark'
 import remarkHTML from 'remark-html'
-import {carouselItemClass} from '@/config'
+import {carouselItemClass, Locales} from '@/config'
+import {cn} from '@/lib/utils'
 
-const locale: Locale = 'en'
+const locale = Locales.EN
 
 const parseMarkdown = remark().use(remarkHTML)
 
@@ -23,9 +23,10 @@ export type ImageProps = {
     fr: string
   }
   loading?: NextImageProps['loading']
+  className?: string
 }
 
-export default async function Image ({src, alt, caption, loading}: ImageProps) {
+export default async function Image ({src, alt, caption, loading, className}: ImageProps) {
   if (caption) {
     const parsed = await parseMarkdown.process(caption[locale])
     const html = parsed.toString()
@@ -34,7 +35,7 @@ export default async function Image ({src, alt, caption, loading}: ImageProps) {
 
   return (
     <CarouselItem className={carouselItemClass}>
-      <figure className={`relative table w-full`}>
+      <figure className={cn('relative table w-full', className)}>
         <Picture
           src={src}
           alt={alt[locale]}
