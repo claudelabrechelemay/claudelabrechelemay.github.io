@@ -1,8 +1,12 @@
 import type {PropsWithChildren} from "react"
 
-export default function TextBlock ({children}: PropsWithChildren) {
+type TextBlockProps = {
+  shrink?: boolean
+}
+
+export default function TextBlock ({children, shrink = false}: PropsWithChildren<TextBlockProps>) {
   return (
-    <div className='lg:max-w-[75ch] [&>h2:has(+p.mt-0)]:mb-0 table h-full'>
+    <div className={`lg:max-w-[75ch] [&>h2:has(+p.mt-0)]:mb-0 table ${shrink ? '' : 'h-full'}`}>
       {children}
     </div>
   )

@@ -8,7 +8,7 @@ export type CollectionPageProps = {
 export default function CollectionPage ({cover, children}: PropsWithChildren<CollectionPageProps>) {
   return (
     <>
-      <TextBlock>{cover || null}</TextBlock>
+      {cover && <TextBlock shrink>{cover || null}</TextBlock>}
       <div className='flex flex-wrap gap-4'>
         {children}
       </div>

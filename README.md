@@ -163,4 +163,4 @@ This repository is [configured](.github/workflows/deploy.yml) to deploy to GitHu
 
 ## LICENSE
 
-The content of this project itself is [not licensed for use](/app/LICENSE) under Claude's 2019 copyright (all rights reserved). However, the underlying source code used to format and display that content is [licensed for fair use](/LICENCE) under the **GPL-3.0-or-later** license.
+The content of this project itself is [not licensed for use](/app/LICENSE) under Claude's 2025 copyright (all rights reserved). However, the underlying source code used to format and display that content is [licensed for fair use](/LICENCE) under the **GPL-3.0-or-later** license.

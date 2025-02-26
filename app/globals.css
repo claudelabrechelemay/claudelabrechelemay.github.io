@@ -1,26 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-h2 {
-  font-size: 22px;
-  margin-block-end: 0.83em;
+@config '../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-h4 {
-  font-weight: bold;
-  margin-block-start: 3rem;
-}
-
-p {
-  font-size: 14px;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  h2 {
+    font-size: 22px;
+    margin-block-end: 0.83em;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-block-start: 3rem;
+  }
+
+  p {
+    font-size: 14px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
   }
 }
 
@@ -102,7 +120,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Regular/abf0a938-6ea7-4e0e-96d4-ef05cd10f561-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -110,7 +128,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -118,7 +136,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Italic/a8bb52dc-1516-4539-b80a-53790e5dec21-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -126,7 +144,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -134,7 +152,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold/8aa17215-eead-4a1d-801a-6c5104e6bee8-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -142,7 +160,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Condensed-Bold-Italic/e9791ea3-dc75-4039-bca9-98efa66462e0-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -150,7 +168,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin/b42c67ee-ca3f-416d-b0e6-78eac4095196-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -158,7 +176,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -166,7 +184,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Thin-Italic/eb2e772d-8293-43cf-97e2-41f08b83940d-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -174,7 +192,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -182,7 +200,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book/2ad8ca5d-63ea-4fcf-8c14-559647ca1e70-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -190,7 +208,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -198,7 +216,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Book-Italic/96cd71c8-36f4-4647-bf21-c924ca37a457-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -206,7 +224,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -214,7 +232,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular/bd869c90-b1e3-4747-997d-b49ecd097efa-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -222,7 +240,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -230,7 +248,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Regular-Italic/133cfed3-4a04-4c6c-aa87-07d80bf73400-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -238,7 +256,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: bold
+    font-weight: bold;
   }
   
   @font-face {
@@ -246,7 +264,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold/30842d1e-54a1-4dcb-afd8-7c493fbe3100-4.svg#web") format("svg");
     font-style: normal;
-    font-weight: normal
+    font-weight: normal;
   }
   
   @font-face {
@@ -254,7 +272,7 @@ p {
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?");
     src: url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-2.eot?") format("embedded-opentype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-3.woff") format("woff"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-1.ttf") format("truetype"), url("https://format-fonts.format.com/webtype/Benton-Sans-Bold-Italic/919b346f-6b26-4430-b05b-a6240c560724-4.svg#web") format("svg");
     font-style: italic;
-    font-weight: normal
+    font-weight: normal;
   }
   * {
     @apply border-border;

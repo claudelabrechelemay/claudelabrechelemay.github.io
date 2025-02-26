@@ -149,7 +149,7 @@ export function Toggle () {
   const {openMobile, open} = useSidebar()
   const isOpen = (isMobile && openMobile) || (!isMobile && open)
   const translateTrigger = isOpen
-    ? 'translate-x-[--sidebar-width-mobile]'
+    ? 'translate-x-(--sidebar-width-mobile)'
     : 'translate-x-0'
   const hideTrigger = isOpen
     ? 'opacity-0 pointer-events-none'

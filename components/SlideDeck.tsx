@@ -38,7 +38,7 @@ export default function SlideDeck ({children, loop = false}: PropsWithChildren<S
         ? (
           <>
             <CarouselPrevious />
-            <CarouselNext className={`transition-transform duration-200 ease-linear ${state === 'collapsed' ? 'translate-x-[--sidebar-width]' : ''}`} />
+            <CarouselNext className={`transition-transform duration-200 ease-linear ${state === 'collapsed' ? 'translate-x-(--sidebar-width)' : ''}`} />
           </>
         )
         : null
