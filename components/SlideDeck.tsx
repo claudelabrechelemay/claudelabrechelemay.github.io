@@ -4,7 +4,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselNext,
-  CarouselPrevious,
+  CarouselPrevious
 } from '@/components/ui/carousel'
 import {Children, cloneElement, isValidElement, type PropsWithChildren} from 'react'
 import Image, {type ImageProps} from '@/components/ImageSlide'

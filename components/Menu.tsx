@@ -29,6 +29,8 @@ import groups from '@/nav/groups'
 import {Button} from './ui/button'
 import {useIsMobile} from '@/hooks/use-mobile'
 import {usePathname} from 'next/navigation'
+import {cn} from '@/lib/utils'
+import {useEffect} from 'react'
 
 const basePath = 'https://www.claudelabrechelemay.com'
 
@@ -36,14 +38,33 @@ export function Menu () {
   const pathname = usePathname()
   const encodedUrl = encodeURI(`${basePath}${pathname}`)
   const isMobile = useIsMobile()
+  const {open, setOpen, toggleSidebar} = useSidebar()
 
   function isActivePage (slug: string) {
     return pathname.endsWith(slug)
   }
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        toggleSidebar()
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [toggleSidebar])
+
+  function onFocus () {
+    if (!open) {
+      setOpen(true)
+    }
+  }
+
   return (
     <>
-      <Sidebar variant='floating'>
+      <Sidebar variant='floating' onFocus={onFocus}>
         <SidebarHeader className='font-sidebarHeader text-2xl'>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -53,7 +74,7 @@ export function Menu () {
                 </h1>
               </SidebarMenuButton>
               <SidebarMenuAction asChild>
-                <SidebarTrigger className='text-muted-foreground py-5 px-2 mt-2'>
+                <SidebarTrigger className='text-muted-foreground py-5 px-2 mt-2 cursor-w-resize'>
                   <CloseIcon />
                 </SidebarTrigger>
               </SidebarMenuAction>
@@ -135,7 +156,16 @@ export function Menu () {
             </p>
           </SidebarGroupLabel>
         </SidebarFooter>
-        {!isMobile ? <SidebarRail /> : null}
+        {!isMobile
+          ? <SidebarRail
+            className={cn(
+              'w-14',
+              'group-data-[side=left]:-right-14',
+              '[[data-side=left][data-collapsible=offcanvas]_&]:-right-14'
+            )}
+          />
+          : null
+        }
       </Sidebar>
       <Toggle />
     </>
@@ -148,14 +178,11 @@ export function Toggle () {
   const isMobile = useIsMobile()
   const {openMobile, open} = useSidebar()
   const isOpen = (isMobile && openMobile) || (!isMobile && open)
-  const translateTrigger = isOpen
-    ? 'translate-x-(--sidebar-width-mobile)'
-    : 'translate-x-0'
   const hideTrigger = isOpen
-    ? 'opacity-0 pointer-events-none'
-    : 'opacity-1'
+    ? 'z-0 opacity-0 pointer-events-none'
+    : 'z-10 opacity-100'
   return <>
-    <SidebarTrigger className={`text-gray-500 ${translateTrigger} ${hideTrigger} z-10 scale-150 p-5 absolute top-0 left-0 mt-8 ml-2 transition-[transform,opacity] duration-200 ease-linear`}>
+    <SidebarTrigger className={`text-gray-500 ${hideTrigger} scale-150 p-5 absolute top-0 left-0 mt-8 ml-2 transition-[opacity] ease-linear cursor-e-resize`}>
       <ToggleIcon />
     </SidebarTrigger>
   </>
