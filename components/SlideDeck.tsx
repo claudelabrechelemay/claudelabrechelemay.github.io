@@ -23,7 +23,7 @@ export default function SlideDeck ({children, loop = false}: PropsWithChildren<S
   const {state} = useSidebar()
   return (
     <Carousel orientation={isMobile ? 'vertical' : 'horizontal'} opts={{
-      skipSnaps: true,
+      dragFree: true,
       loop
     }} className={cn(carouselHeight, 'max-h-full [&>div]:h-full')}>
       <CarouselContent className='h-full'>

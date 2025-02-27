@@ -16,7 +16,7 @@ export default function Layout ({children}: LayoutProps) {
   return (
     <SidebarProvider>
       <Menu />
-      <SidebarInset className={`md:justify-center md:max-w-[calc(100vw-var(--sidebar-width))] pt-20 ${isMobile ? 'px-0' : 'px-20'}`}>
+      <SidebarInset className={`w-full md:justify-center md:max-w-[calc(100vw-var(--sidebar-width))] pt-20 px-0 md:px-20`}>
         {children}
       </SidebarInset>
     </SidebarProvider>
