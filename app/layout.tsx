@@ -1,12 +1,16 @@
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import Layout from '@/components/Layout'
 import './globals.css'
 import {Locales} from '@/config'
 
-
 export const metadata: Metadata = {
   title: 'Claude Labrèche-Lemay',
-  description: '',
+  description: ''
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 0
 }
 
 export default function RootLayout ({
@@ -16,7 +20,7 @@ export default function RootLayout ({
 }>) {
   return (
     <html lang={Locales.EN}>
-      <body className={`w-full overflow-x-hidden font-main antialiased`}>
+      <body className={`w-full font-main antialiased`}>
         <Layout>
           {children}
         </Layout>

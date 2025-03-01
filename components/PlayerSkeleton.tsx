@@ -1,4 +1,5 @@
 import {Play} from 'lucide-react'
+import Image from 'next/image'
 
 export type PlayerSkeletonProps = {
   src: string
@@ -7,7 +8,7 @@ export type PlayerSkeletonProps = {
 export default function PlayerSkeleton ({src, alt}: PlayerSkeletonProps) {
   return (
     <div className='absolute top-0 left-0 size-full'>
-      <img
+      <Image
         alt={alt}
         src={src}
         className='absolute top-0 left-0 size-full'

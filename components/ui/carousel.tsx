@@ -160,12 +160,11 @@ const CarouselContent = React.forwardRef<
   const {carouselRef, orientation} = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-auto">
+    <div ref={carouselRef}>
       <div
         ref={ref}
         className={cn(
           "flex",
-          styles.iosScrollFix,
           orientation === "horizontal" ? "mt-0" : "mt-0 flex-col",
           className
         )}

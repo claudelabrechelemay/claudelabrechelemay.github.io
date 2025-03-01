@@ -31,6 +31,7 @@ import {useIsMobile} from '@/hooks/use-mobile'
 import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
 import {useEffect} from 'react'
+import Link from 'next/link'
 
 const basePath = 'https://www.claudelabrechelemay.com'
 
@@ -64,13 +65,14 @@ export function Menu () {
 
   return (
     <>
+      <Toggle />
       <Sidebar variant='floating' onFocus={onFocus}>
         <SidebarHeader className='font-sidebarHeader text-2xl'>
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton className='h-16 hover:bg-sidebar' asChild>
                 <h1>
-                  <a href='/'>Claude{<br />}Labrèche-Lemay</a>
+                  <Link href='/'>Claude{<br />}Labrèche-Lemay</Link>
                 </h1>
               </SidebarMenuButton>
               <SidebarMenuAction asChild>
@@ -100,15 +102,17 @@ export function Menu () {
                 ) : null}
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {items.map(({title, slug}) => (
-                      <SidebarMenuItem key={title.en}>
-                        <SidebarMenuButton asChild>
-                          <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
-                            <span>{title.en}</span>
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
+                    {items.map(({title, slug}) => {
+                      return (
+                        <SidebarMenuItem key={title.en}>
+                          <SidebarMenuButton asChild>
+                            <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                              <span>{title.en}</span>
+                            </a>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      )
+                    })}
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
@@ -119,29 +123,29 @@ export function Menu () {
           <SidebarMenu className='font-sidebarSocials'>
             <SidebarMenuItem>
               <Popover>
-                <PopoverTrigger className='font-bold'>
+                <PopoverTrigger className='font-bold ml-2 hover:underline focus:underline'>
                   Share
                 </PopoverTrigger>
                 <PopoverContent>
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}><SiFacebook /> Share to Facebook</a>
+                        <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}><SiFacebook /> Share to Facebook</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}><SiX /> Share to X</a>
+                        <Link href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}><SiX /> Share to X</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href={`https://www.tumblr.com/widgets/share/tool?posttype=link&amp;canonicalUrl=${encodedUrl}`}><SiTumblr /> Share to Tumblr</a>
+                        <Link href={`https://www.tumblr.com/widgets/share/tool?posttype=link&amp;canonicalUrl=${encodedUrl}`}><SiTumblr /> Share to Tumblr</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <a href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}`}><SiPinterest /> Share to Pinterest</a>
+                        <Link href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}`}><SiPinterest /> Share to Pinterest</Link>
                       </Button>
                     </SidebarMenuItem>
                   </SidebarMenu>
@@ -167,7 +171,6 @@ export function Menu () {
           : null
         }
       </Sidebar>
-      <Toggle />
     </>
   )
 }
