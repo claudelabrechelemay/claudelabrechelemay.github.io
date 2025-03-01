@@ -2,7 +2,7 @@ import tailwindCSSanimate from 'tailwindcss-animate'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-	darkMode: ['class'],
+	darkMode: ['class', 'dark'],
 	content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -79,11 +79,66 @@ const config: Config = {
 			}
 		},
 		fontFamily: {
-			main: ['"Freight Sans Book"', 'sans-serif'],
-			sidebar: ['"Benton Sans Regular"', 'sans-serif'],
-			sidebarHeader: ['"Benton Sans Thin"', 'sans-serif'],
-			sidebarSocials: ['"Benton Sans Book"', 'sans-serif'],
-			copyright: ['"Helvetica Neue"', 'Arial', 'Helvetica', 'sans-serif']
+			main: [
+				'"Benton Sans Regular"',
+				'"Franklin Gothic"',
+				'"Helvetica Neue"',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI"',
+				'Roboto',
+				'Helvetica',
+				'Arial',
+				'system-ui',
+				'sans-serif'
+			],
+			sidebar: ['"Benton Sans Regular"',
+				'"Franklin Gothic"',
+				'"Helvetica Neue"',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI"',
+				'Roboto',
+				'Helvetica',
+				'Arial',
+				'system-ui',
+				'sans-serif'
+			],
+			sidebarHeader: ['"Benton Sans Thin"',
+				'"Franklin Gothic Light"',
+				'"Helvetica Neue Light"',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI Light"',
+				'Roboto Light',
+				'Helvetica Light',
+				'Arial',
+				'system-ui',
+				'sans-serif'
+			],
+			sidebarSocials: ['"Benton Sans Book"',
+				'"Franklin Gothic Book"',
+				'"Helvetica Neue"',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI"',
+				'Roboto',
+				'Helvetica',
+				'Arial',
+				'system-ui',
+				'sans-serif'
+			],
+			copyright: ['"Helvetica Neue"',
+				'"Franklin Gothic"',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI"',
+				'Roboto',
+				'Helvetica',
+				'Arial',
+				'system-ui',
+				'sans-serif'
+			]
 		}
   },
   plugins: [tailwindCSSanimate]
