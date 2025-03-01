@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/postcss';
+
 @config '../tailwind.config.ts';
 
 /*
@@ -18,6 +20,9 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @utility text-balance {
@@ -33,6 +38,7 @@
   h4 {
     font-weight: bold;
     margin-block-start: 3rem;
+    break-after: avoid;
   }
 
   p {
