@@ -1,5 +1,6 @@
 import Picture from "next-export-optimize-images/picture"
 import type {StaticImageData} from "next/image"
+import Link from "next/link"
 
 type CollectionLinkProps = {
   url: string
@@ -15,7 +16,7 @@ type CollectionLinkProps = {
 }
 export default function CollectionLink ({url, src, alt, caption}: CollectionLinkProps) {
   return (
-    <a key={url} href={url} className='w-full md:w-1/4'>
+    <Link key={url} href={url} className='w-full md:w-1/4'>
       <figure>
         <Picture
           src={src}
@@ -27,7 +28,7 @@ export default function CollectionLink ({url, src, alt, caption}: CollectionLink
         />
         <figcaption>{caption?.en}</figcaption>
       </figure>
-    </a>
+    </Link>
   )
 }
 

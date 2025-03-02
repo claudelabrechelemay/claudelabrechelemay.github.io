@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import About from './about.mdx'
 
 export default function AboutPage () {
@@ -10,7 +11,7 @@ export default function AboutPage () {
         </div>
         <div className='float-right'>
           <h3 className='font-bold'>CONTACT</h3>
-          <a href='mailto:claudelabrechelemay@gmail.com'>claudelabrechelemay@gmail.com</a>
+          <Link href='mailto:claudelabrechelemay@gmail.com'>claudelabrechelemay@gmail.com</Link>
         </div>
       </div>
       <hr />

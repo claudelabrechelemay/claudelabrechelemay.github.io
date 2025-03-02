@@ -91,9 +91,9 @@ export function Menu () {
                   <SidebarGroupLabel className='text-foreground'>
                     <SidebarMenuButton asChild>
                       {slug ? (
-                        <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                        <Link href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
                           <span>{label.en}</span>
-                        </a>
+                        </Link>
                       ) : (
                         <span>{label.en}</span>
                       )}
@@ -106,9 +106,9 @@ export function Menu () {
                       return (
                         <SidebarMenuItem key={title.en}>
                           <SidebarMenuButton asChild>
-                            <a href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                            <Link href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
                               <span>{title.en}</span>
-                            </a>
+                            </Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
                       )
