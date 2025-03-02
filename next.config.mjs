@@ -8,7 +8,6 @@ const nextConfig = {
   output: 'export',
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
   // Move to Next.js 15, then:
   // experimental: {
   //   reactCompiler: true,
