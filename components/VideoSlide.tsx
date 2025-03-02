@@ -5,6 +5,7 @@ import {CarouselItem} from '@/components/ui/carousel'
 import {carouselItemClass} from '@/config'
 import {cn} from '@/lib/utils'
 import PlayerSkeleton from '@/components/PlayerSkeleton'
+
 const Player = lazy(() => import('@/components/Player'))
 export type VideoProps = {
   provider?: 'vimeo'

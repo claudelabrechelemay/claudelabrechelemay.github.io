@@ -51,10 +51,12 @@ Provide imported content to components to render them on the page.
 Producing a horizontal carousel, the `SlideDeck` component accepts various types of slides:
 - `TextSlide`
 - `ImageSlide`
+- `VideoSlide`
 ```tsx
 import SlideDeck from '@/components/SlideDeck'
 import Text from '@/components/TextSlide'
 import Image from '@/components/ImageSlide'
+import Video from '@/components/VideoSlide'
 
 import img0 from './images/some-image.jpg'
 import Mdx from './file.mdx'
@@ -67,6 +69,12 @@ import Mdx from './file.mdx'
       en: 'A large red square',
       fr: 'Un gros carré rouge'
     }}
+  />
+  <Video
+    provider='vimeo'
+    id='123456789'
+    src='https://i.vimeocdn.com/video/625672641-fafb995e23608f99d6d27c082ac4a3faf662a2c2cad8c94442c7f83d21fa75d4-d?f=webp'
+    alt='Salto arrière'
   />
 </SlideDeck>
 ```

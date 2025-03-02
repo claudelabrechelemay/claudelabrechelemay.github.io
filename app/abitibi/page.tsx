@@ -7,7 +7,6 @@ import Abitibi from './abitibi.mdx'
 import img0 from './images/img_0.jpg'
 import img1 from './images/img_1.jpg'
 import img2 from './images/img_2.jpg'
-import img3 from './images/img_3.jpg'
 
 export default function Page () {
   return (
@@ -29,13 +28,6 @@ export default function Page () {
       />
       <Image
         src={img2}
-        alt={{
-          en: '',
-          fr: ''
-        }}
-      />
-      <Image
-        src={img3}
         alt={{
           en: '',
           fr: ''
