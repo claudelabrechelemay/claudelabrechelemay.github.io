@@ -9,6 +9,7 @@ import img0 from './images/img_0.jpg'
 import img1 from './images/img_1.jpg'
 import img2 from './images/img_2.jpg'
 import img3 from './images/img_3.jpg'
+import videoPoster from './images/video-poster.jpg'
 
 export default function Page () {
   return (
@@ -46,7 +47,7 @@ export default function Page () {
       <Video
         provider='vimeo'
         id='209989649'
-        src='https://i.vimeocdn.com/video/625672641-fafb995e23608f99d6d27c082ac4a3faf662a2c2cad8c94442c7f83d21fa75d4-d?f=webp'
+        src={videoPoster}
         alt='StayStill-Dummy'
       />
     </SlideDeck>

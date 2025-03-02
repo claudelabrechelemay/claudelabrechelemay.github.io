@@ -5,12 +5,13 @@ import {CarouselItem} from '@/components/ui/carousel'
 import {carouselItemClass} from '@/config'
 import {cn} from '@/lib/utils'
 import PlayerSkeleton from '@/components/PlayerSkeleton'
+import type {StaticImageData} from 'next/image'
 
 const Player = lazy(() => import('@/components/Player'))
 export type VideoProps = {
   provider?: 'vimeo'
   id: string
-  src: string
+  src: StaticImageData
   alt: string
 }
 export default function Video ({provider = 'vimeo', id, src, alt}: VideoProps) {
@@ -27,7 +28,7 @@ export default function Video ({provider = 'vimeo', id, src, alt}: VideoProps) {
                   startTransition(() => {
                     setShowPlayer(true)
                   })
-                }}>
+                }} className='cursor-pointer'>
                   <PlayerSkeleton src={src} alt={alt} />
                 </button>}
                 {showPlayer && <Player id={id} />}

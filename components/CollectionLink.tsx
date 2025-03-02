@@ -26,7 +26,7 @@ export default function CollectionLink ({url, src, alt, caption}: CollectionLink
           className='w-full'
           sizes='(max-width: 768px) 512px, 200px'
         />
-        <figcaption>{caption?.en}</figcaption>
+        <figcaption className='p-2'>{caption?.en}</figcaption>
       </figure>
     </Link>
   )

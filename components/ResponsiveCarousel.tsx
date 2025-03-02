@@ -50,7 +50,7 @@ export default function ResponsiveCarousel ({orientation, loop, className, child
         ? <CarouselPrevious tabIndex={0} />
         : null
       } */}
-      <CarouselContent className='h-full' tabIndex={0}>
+      <CarouselContent className={orientation === 'horizontal' ? 'h-full' : ''} tabIndex={0}>
         {Children.map(children, (child, idx) => {
           if (isValidElement<ImageProps>(child) && child.type === Image) {
             return cloneElement(child, {loading: idx < 3 ? 'eager' : 'lazy'})

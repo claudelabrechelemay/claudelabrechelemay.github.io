@@ -59,6 +59,7 @@ import Image from '@/components/ImageSlide'
 import Video from '@/components/VideoSlide'
 
 import img0 from './images/some-image.jpg'
+import videoPoster from './images/video-poster.jpg'
 import Mdx from './file.mdx'
 
 <SlideDeck>
@@ -73,7 +74,7 @@ import Mdx from './file.mdx'
   <Video
     provider='vimeo'
     id='123456789'
-    src='https://i.vimeocdn.com/video/625672641-fafb995e23608f99d6d27c082ac4a3faf662a2c2cad8c94442c7f83d21fa75d4-d?f=webp'
+    src={videoPoster}
     alt='Salto arrière'
   />
 </SlideDeck>
