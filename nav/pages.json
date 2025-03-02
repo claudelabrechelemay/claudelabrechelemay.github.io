@@ -1,15 +1,18 @@
 {
-  "items": [{
-    "title": {
-      "en": "About",
-      "fr": "À propos"
+  "items": [
+    {
+      "title": {
+        "en": "About",
+        "fr": "À propos"
+      },
+      "slug": "about"
     },
-    "slug": "/about"
-  }, {
-    "title": {
-      "en": "Previous work",
-      "fr": "Oeuvres passées"
-    },
-    "slug": "/previous-work"
-  }]
+    {
+      "title": {
+        "en": "Previous work",
+        "fr": "Oeuvres passées"
+      },
+      "slug": "previous-work"
+    }
+  ]
 }

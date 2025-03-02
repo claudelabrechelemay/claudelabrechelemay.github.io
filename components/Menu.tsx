@@ -85,6 +85,7 @@ export function Menu () {
         </SidebarHeader>
         <SidebarContent className='h-full font-sidebar text-sm'>
           {groups.map(({label, slug, items}) => {
+            console.log({slug, a: true})
             return (
               <SidebarGroup key={items[0].slug}>
                 {label ? (
@@ -103,6 +104,7 @@ export function Menu () {
                 <SidebarGroupContent>
                   <SidebarMenu>
                     {items.map(({title, slug}) => {
+                      console.log({slug, B: true})
                       return (
                         <SidebarMenuItem key={title.en}>
                           <SidebarMenuButton asChild>
