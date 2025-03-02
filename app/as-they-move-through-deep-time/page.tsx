@@ -6,7 +6,7 @@ import DeepTime from './deep-time.mdx'
 
 import img0 from './images/deep-time-cover.jpg'
 import img1 from './images/wall-of-clay.jpg'
-import img2 from '/65-kg.jpg'
+import img2 from './images/65-kg.jpg'
 import img3 from '@/app/as-they-move-through-deep-time/images/spine.jpg'
 import img4 from './images/spine-tail.jpg'
 import img5 from './images/vertebrae.jpg'
