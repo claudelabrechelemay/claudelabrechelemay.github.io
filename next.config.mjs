@@ -10,10 +10,10 @@ const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '', // Required to get styles and scripts
   assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
   // Move to Next.js 15, then:
-  experimental: {
-    outputFileTracingRoot: process.cwd(),
-    //   reactCompiler: true,
-  },
+  // experimental: {
+  // outputFileTracingRoot: process.cwd(),
+  //   reactCompiler: true,
+  // },
 };
 
 export default withExportImages(withConfiguredMDX(nextConfig));
