@@ -7,6 +7,7 @@ const withConfiguredMDX = configMDX();
 const nextConfig = {
   output: 'export',
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  // When the feature becomes stable, uncomment:
   // experimental: {
   //   reactCompiler: true,
   // },
