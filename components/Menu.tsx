@@ -30,7 +30,7 @@ import {Button} from './ui/button'
 import {useIsMobile} from '@/hooks/use-mobile'
 import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
-import {useEffect} from 'react'
+import {useCallback, useEffect} from 'react'
 import Link from 'next/link'
 
 const basePath = 'https://www.claudelabrechelemay.com'
@@ -63,6 +63,12 @@ export function Menu () {
     }
   }
 
+  const closeSidebarOnMobile = useCallback(() => {
+    if (isMobile && open) {
+      toggleSidebar()
+    }
+  }, [isMobile, open, toggleSidebar])
+
   return (
     <>
       <Toggle />
@@ -72,7 +78,7 @@ export function Menu () {
             <SidebarMenuItem>
               <SidebarMenuButton className='h-16 hover:bg-sidebar' asChild>
                 <h1>
-                  <Link href='/'>Claude{<br />}Labrèche-Lemay</Link>
+                  <Link href='/' onClick={closeSidebarOnMobile}>Claude{<br />}Labrèche-Lemay</Link>
                 </h1>
               </SidebarMenuButton>
               <SidebarMenuAction asChild>
@@ -91,7 +97,7 @@ export function Menu () {
                   <SidebarGroupLabel className='text-foreground'>
                     <SidebarMenuButton asChild>
                       {slug ? (
-                        <Link href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                        <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
                           <span>{label.en}</span>
                         </Link>
                       ) : (
@@ -106,7 +112,7 @@ export function Menu () {
                       return (
                         <SidebarMenuItem key={title.en}>
                           <SidebarMenuButton asChild>
-                            <Link href={slug} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                            <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
                               <span>{title.en}</span>
                             </Link>
                           </SidebarMenuButton>
