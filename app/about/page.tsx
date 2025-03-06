@@ -3,19 +3,18 @@ import About from './about.mdx'
 
 export default function AboutPage () {
   return (
-    <>
-      <div className='flex justify-between gap-4'>
-        <div>
-          <p>b. 1992 in Montreal, Qc, Canada.</p>
-          <p>works and lives in Montreal.</p>
+    <div className='p-2'>
+      <div className='flex justify-between items-baseline gap-4 flex-wrap'>
+        <div className='min-w-max'>
+          <p>b. 1992 in Montreal, Qc, Canada.<br />works and lives in Montreal.</p>
         </div>
-        <div className='float-right'>
+        <div className='overflow-x-hidden'>
           <h3 className='font-bold'>CONTACT</h3>
-          <Link href='mailto:claudelabrechelemay@gmail.com'>claudelabrechelemay@gmail.com</Link>
+          <Link className='break-words' href='mailto:claudelabrechelemay@gmail.com'>claudelabrechelemay@gmail.com</Link>
         </div>
       </div>
       <hr />
       <About />
-    </>
+    </div>
   )
 }
