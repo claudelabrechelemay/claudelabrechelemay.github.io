@@ -7,7 +7,7 @@ export default function Player ({id}: PlayerProps) {
       src={`https://player.vimeo.com/video/${id}?autoplay=1`}
       allowFullScreen
       allow='autoplay; picture-in-picture; clipboard-write'
-      className='absolute top-0 left-0 size-full'
+      className='absolute top-0 left-0 size-full pointer-events-auto'
       loading='lazy'
     ></iframe>
   )
