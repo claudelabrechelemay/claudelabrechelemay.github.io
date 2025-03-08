@@ -8,6 +8,7 @@ import PlayerSkeleton from '@/components/PlayerSkeleton'
 import type {StaticImageData} from 'next/image'
 
 const Player = lazy(() => import('@/components/Player'))
+
 export type VideoProps = {
   provider?: 'vimeo'
   id: string
@@ -24,16 +25,18 @@ export default function Video ({provider = 'vimeo', id, src, alt}: VideoProps) {
           case 'vimeo':
             return (
               <div className='relative pt-[56.25%] pb-0 px-0 size-full'>
-                {<button onClick={() => {
+                <button onClick={() => {
                   startTransition(() => {
                     setShowPlayer(true)
                   })
-                }} className='cursor-pointer'>
+                }} className='cursor-pointer pointer-events-auto'>
                   <PlayerSkeleton src={src} alt={alt} />
-                </button>}
+                </button>
                 {showPlayer && <Player id={id} />}
               </div>
             )
+          default:
+            throw new Error(`Unknown provider: ${provider}`)
         }
       })()}
     </CarouselItem>
