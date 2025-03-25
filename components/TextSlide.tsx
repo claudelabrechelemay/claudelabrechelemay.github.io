@@ -38,7 +38,7 @@ export default function Text ({children}: PropsWithChildren) {
       return
     }
     toggleShadow(ref.current)
-  }, [ref.current])
+  }, [ref])
   const onWheel = useCallback((event: WheelEvent) => {
     if (!ref.current) {
       return
@@ -57,7 +57,7 @@ export default function Text ({children}: PropsWithChildren) {
   }, [])
 
   return (
-    <CarouselItem ref={ref} className={cn(carouselItemClass, 'flex max-w-full min-w-96 flex-col overflow-y-scroll p-4 transition-shadow', shadow)} onWheel={onWheel}>
+    <CarouselItem ref={ref} className={cn(carouselItemClass, 'flex max-w-full min-w-96 flex-col overflow-y-scroll p-4 transition-shadow', shadow)} onWheelCapture={onWheel}>
       <TextBlock>{children}</TextBlock>
     </CarouselItem>
   )
