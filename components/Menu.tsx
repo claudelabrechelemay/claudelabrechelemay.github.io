@@ -162,7 +162,7 @@ export function Menu () {
           <SidebarGroupLabel asChild className='text-sidebar-foreground'>
             <p>
               Copyright © Claude Labrèche-Lemay<br />
-              2019; All rights reserved.
+              2025; All rights reserved.
             </p>
           </SidebarGroupLabel>
         </SidebarFooter>
