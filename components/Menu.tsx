@@ -22,7 +22,7 @@ import {
   PopoverTrigger
 } from '@/components/ui/popover'
 
-import {SiFacebook, SiX, SiTumblr, SiPinterest} from '@icons-pack/react-simple-icons'
+import {SiFacebook, SiX, SiTumblr, SiPinterest, SiBuymeacoffee} from '@icons-pack/react-simple-icons'
 import {Menu as ToggleIcon, X as CloseIcon} from "lucide-react"
 
 import groups from '@/nav/groups'
@@ -112,7 +112,7 @@ export function Menu () {
                       return (
                         <SidebarMenuItem key={title.en}>
                           <SidebarMenuButton asChild>
-                            <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
+                            <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''} title={title.en || ''}>
                               <span>{title.en}</span>
                             </Link>
                           </SidebarMenuButton>
@@ -136,27 +136,32 @@ export function Menu () {
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}><SiFacebook /> Share to Facebook</Link>
+                        <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target='_blank'><SiFacebook /> Share to Facebook</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <Link href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}><SiX /> Share to X</Link>
+                        <Link href={`https://twitter.com/intent/tweet?url=${encodedUrl}`} target='_blank'><SiX /> Share to X</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <Link href={`https://www.tumblr.com/widgets/share/tool?posttype=link&amp;canonicalUrl=${encodedUrl}`}><SiTumblr /> Share to Tumblr</Link>
+                        <Link href={`https://www.tumblr.com/widgets/share/tool?posttype=link&amp;canonicalUrl=${encodedUrl}`} target='_blank'><SiTumblr /> Share to Tumblr</Link>
                       </Button>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Button asChild variant='ghost'>
-                        <Link href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}`}><SiPinterest /> Share to Pinterest</Link>
+                        <Link href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}`} target='_blank'><SiPinterest /> Share to Pinterest</Link>
                       </Button>
                     </SidebarMenuItem>
                   </SidebarMenu>
                 </PopoverContent>
               </Popover>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Button asChild variant='ghost' className='text-xs font-bold -ml-2 hover:underline focus:underline'>
+                <Link href='https://www.buymeacoffee.com/claudelabrechelemay' target='_blank'><SiBuymeacoffee /> Buy me a coffee</Link>
+              </Button>
             </SidebarMenuItem>
           </SidebarMenu>
           <SidebarGroupLabel asChild className='text-sidebar-foreground'>
