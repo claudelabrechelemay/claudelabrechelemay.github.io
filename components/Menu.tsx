@@ -1,5 +1,7 @@
 'use client'
 
+import Markdown from 'react-markdown'
+
 import {
   Sidebar,
   SidebarContent,
@@ -94,7 +96,7 @@ export function Menu () {
             return (
               <SidebarGroup key={items[0].slug}>
                 {label ? (
-                  <SidebarGroupLabel className='text-foreground'>
+                  <SidebarGroupLabel className='text-foreground uppercase px-0'>
                     <SidebarMenuButton asChild>
                       {slug ? (
                         <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''}>
@@ -112,8 +114,14 @@ export function Menu () {
                       return (
                         <SidebarMenuItem key={title.en}>
                           <SidebarMenuButton asChild>
-                            <Link href={slug} onClick={closeSidebarOnMobile} className={slug && isActivePage(slug) ? 'font-bold' : ''} title={title.en || ''}>
-                              <span>{title.en}</span>
+                            <Link href={slug} onClick={closeSidebarOnMobile} className={`h-auto ${slug && isActivePage(slug) ? 'font-bold' : ''}`} title={title.en || ''}>
+                              <span className='pl-1.5 -indent-1.5'>
+                                <Markdown
+                                  components={{
+                                    p: ({children}) => <>{children}</>,
+                                  }}
+                                >{title.en}</Markdown>
+                              </span>
                             </Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
