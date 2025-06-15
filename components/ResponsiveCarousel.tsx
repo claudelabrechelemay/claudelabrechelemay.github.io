@@ -62,7 +62,7 @@ function ResponsiveCarouselContent ({orientation, dragFree, children}: PropsWith
     })
   }, [api, dragFree])
   return (
-    <CarouselContent className={orientation === 'horizontal' ? 'h-full' : ''} tabIndex={0} onWheel={onWheel}>
+    <CarouselContent className={`[&>*:first-child]:md:pl-20 [&>*:last-child]:md:pr-20 ${orientation === 'horizontal' ? 'h-full' : ''}`} tabIndex={0} onWheel={onWheel}>
       {Children.map(children, (child, idx) => {
         if (isValidElement<ImageProps>(child) && child.type === Image) {
           return cloneElement(child, {loading: idx < 3 ? 'eager' : 'lazy'})
