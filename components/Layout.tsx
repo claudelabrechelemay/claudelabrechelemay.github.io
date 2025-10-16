@@ -13,7 +13,7 @@ export type LayoutProps = PropsWithChildren<{
 
 export default function Layout ({children}: LayoutProps) {
   const pathname = usePathname()
-  if (pathname === '/francoismorelli-pour') {
+  if (pathname === '/francoismorelli-pour' || pathname === '/bonniebaxter-thepatch') {
     return <>{children}</>
   }
   return (
